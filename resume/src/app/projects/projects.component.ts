@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css'],
 })
-export class AppComponent {
+export class ProjectsComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   techCtrl = new FormControl('');
   filteredTechs: Observable<string[]>;
