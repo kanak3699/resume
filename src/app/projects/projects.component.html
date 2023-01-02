@@ -1,0 +1,93 @@
+<form>
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Tools & Technologies</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Tech selection">
+      <mat-chip-row *ngFor="let tech of techs" (removed)="remove(tech)">
+        {{ tech }}
+        <button matChipRemove [attr.aria-label]="'remove ' + tech">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+    <input
+      placeholder="Select the Tools and Technologies"
+      #techInput
+      [formControl]="techCtrl"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="selected($event)"
+    >
+      <mat-option *ngFor="let tech of filteredTechs | async" [value]="tech">
+        {{ tech }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<!-- Grid List -->
+<mat-grid-list cols="4" rowHeight="1:1">
+  <!-- First Grid -->
+  <mat-grid-tile>
+    <div class="example-box" cdkDrag [cdkDragStartDelay]="1000">
+      <!-- First Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title
+            >Analyzing Stock Market using Lagged Correlation
+            Algoritm</mat-card-title
+          >
+          <mat-card-subtitle
+            >Python, Anaconda, Jupyter Notebook, Big Data,
+            ETL</mat-card-subtitle
+          >
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>
+            In this project, I have developed a lagged correlation algorithm for
+            predicting the market direction more accurately when two stocks are
+            strongly correlated to each other with a lag of K number of trading
+            days.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>View Code</button>
+          <button mat-button>View Project</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+
+  <!-- Second Grid -->
+  <mat-grid-tile>
+    <div class="example-box" cdkDrag [cdkDragStartDelay]="1000">
+      <!-- Second Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Maruti - Financial News Aggregator</mat-card-title>
+          <mat-card-subtitle
+            >Angular, TypeScript, API, HTML, CSS</mat-card-subtitle
+          >
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>
+            In this project, I have developed a lagged correlation algorithm for
+            predicting the market direction more accurately when two stocks are
+            strongly correlated to each other with a lag of K number of trading
+            days.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>View Code</button>
+          <button mat-button>View Project</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
