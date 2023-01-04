@@ -1,24 +1,24 @@
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import { Component, ElementRef, ViewChild } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { MatAutocompleteSelectedEvent } from "@angular/material/autocomplete";
+import { MatChipInputEvent } from "@angular/material/chips";
+import { Observable } from "rxjs";
+import { map, startWith } from "rxjs/operators";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  techCtrl = new FormControl('');
+  techCtrl = new FormControl("");
   filteredTechs: Observable<string[]>;
-  techs: string[] = ['GitHub'];
-  allTechs: string[] = ['Angular', 'Azure', 'GitHub', 'GitLab', 'JavaScript'];
+  techs: string[] = ["GitHub"];
+  allTechs: string[] = ["Angular", "Azure", "GitHub", "GitLab", "JavaScript"];
 
-  @ViewChild('techInput') techInput: ElementRef<HTMLInputElement>;
+  @ViewChild("techInput") techInput: ElementRef<HTMLInputElement>;
 
   constructor() {
     this.filteredTechs = this.techCtrl.valueChanges.pipe(
@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
+    const value = (event.value || "").trim();
 
     // Add our tech
     if (value) {
@@ -53,7 +53,7 @@ export class AppComponent {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.techs.push(event.option.viewValue);
-    this.techInput.nativeElement.value = '';
+    this.techInput.nativeElement.value = "";
     this.techCtrl.setValue(null);
   }
 

@@ -1,1 +1,11 @@
-<p>work works!</p>
+<div class="timeline" [@timelineAnimation]="workplaces.length">
+  <div class="timeline-item" *ngFor="let workplace of workplaces; index as i">
+    <div class="timeline-item__duration">{{ workplace.duration }}</div>
+    <div class="timeline-item__line"></div>
+    <div class="timeline-item__content">
+      <div class="timeline-item__position">{{ workplace.position }}</div>
+      <div class="timeline-item__company">{{ workplace.company }}</div>
+      <div class="timeline-item__description">{{ workplace.description }}</div>
+    </div>
+  </div>
+</div>

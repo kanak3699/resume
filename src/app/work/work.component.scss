@@ -1,0 +1,48 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    .timeline-item__duration {
+      font-size: 14px;
+      font-weight: 600;
+      color: #999;
+      margin-right: 20px;
+    }
+
+    .timeline-item__line {
+      flex: 1;
+      height: 2px;
+      background-color: #999;
+      margin: 0 20px;
+    }
+
+    .timeline-item__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 20px;
+
+      .timeline-item__position {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .timeline-item__company {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .timeline-item__description {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+  }
+}
